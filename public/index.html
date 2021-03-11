@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Node Unblocker</title>
+  <title>School Proxy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- header font -->
   <link href="//fonts.googleapis.com/css?family=Orbitron" rel="stylesheet" type="text/css">
@@ -67,7 +67,7 @@
   
     <div class="main">
   
-      <h1>Node Unblocker</h1>
+      <h1>School Proxy</h1>
       
       <div id="error"></div>
 
@@ -110,7 +110,7 @@
 		}
 		
 		$('unblocker-form').onsubmit = function(){
-			var url = $('url').value;
+			let url = $('url').value;
 			if(url.substr(0,4) != "http"){
 				url = "http://" + url;
 			}
@@ -119,14 +119,14 @@
 		};
 		
 		function checkError(){
-			var search = window.location.search;
-			var start = search.indexOf('error=');
+			let search = window.location.search;
+			let start = search.indexOf('error=');
 			if(start > -1){
-				var stop = search.indexOf('&', start);
+				let stop = search.indexOf('&', start);
 				if(stop == -1){ stop = undefined; }
 				// +6 for "error="
-				var err = search.substr(start+6, stop);
-                var $error = $('error');
+				let err = search.substr(start+6, stop);
+                let $error = $('error');
 				$error.innerText = $error.textContent = decodeURIComponent(err);
 				$error.style.display = "block";
 			}
