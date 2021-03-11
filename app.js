@@ -9,20 +9,20 @@
  * Released under the terms of the Affero GPL v3
  */
 
-var url = require('url');
-var querystring = require('querystring');
-var express = require('express');
-var unblocker = require('unblocker');
-var Transform = require('stream').Transform;
-var youtube = require('unblocker/examples/youtube/youtube.js')
+let url = require('url');
+let querystring = require('querystring');
+let express = require('express');
+let unblocker = require('unblocker');
+let Transform = require('stream').Transform;
+let youtube = require('unblocker/examples/youtube/youtube.js')
 
-var app = express();
+let app = express();
 
-var google_analytics_id = process.env.GA_ID || null;
+let google_analytics_id = process.env.GA_ID || null;
 
-function addGa(html) {
+function addGa(html)
     if (google_analytics_id) {
-        var ga = [
+        let ga = [
             "<script type=\"text/javascript\">",
             "var _gaq = []; // overwrite the existing one, if any",
             "_gaq.push(['_setAccount', '" + google_analytics_id + "']);",
@@ -53,7 +53,7 @@ function googleAnalyticsMiddleware(data) {
     }
 }
 
-var unblockerConfig = {
+let unblockerConfig = {
     prefix: '/proxy/',
     requestMiddleware: [
         youtube.processRequest
@@ -74,7 +74,7 @@ app.use('/', express.static(__dirname + '/public'));
 // this is for users who's form actually submitted due to JS being disabled or whatever
 app.get("/no-js", function(req, res) {
     // grab the "url" parameter from the querystring
-    var site = querystring.parse(url.parse(req.url).query).url;
+    let site = querystring.parse(url.parse(req.url).query).url;
     // and redirect the user to /proxy/url
     res.redirect(unblockerConfig.prefix + site);
 });
