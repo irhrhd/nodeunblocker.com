@@ -7,7 +7,7 @@
   "homepage": "https://github.com/nfriedly/nodeunblocker.com/",
   "dependencies": {
     "express": "^4.13.0",
-    "newrelic": "^1.20.2",
+    "newrelic": "^6.5.0",
     "through": "^2.3.8",
     "unblocker": "github:nfriedly/node-unblocker#websockets",
     "ytdl-core": "^4.5.0"
